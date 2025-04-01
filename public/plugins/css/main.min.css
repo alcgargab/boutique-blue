@@ -9,6 +9,10 @@
     --blue: #4989F6;
     --yellow: #F9BF1F;
 }
+a, a:link, a:visited, a:focus, a:hover, a:active{
+    text-decoration: none;
+    color: var(--gray);
+}
 .txtAtom {
     color: var(--atom);
 }

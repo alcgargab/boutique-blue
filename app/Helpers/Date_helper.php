@@ -17,10 +17,11 @@ if (!function_exists('__getMonth'))
   {
     $fecha = substr($date, 0, 10);
     $mes = date('F', strtotime($date));
+    $anio = date('Y', strtotime($date));
     $meses_ES = array("Enero", "Febrero", "Marzo", "Abril", "Mayo", "Junio", "Julio", "Agosto", "Septiembre", "Octubre", "Noviembre", "Diciembre");
     $meses_EN = array("January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December");
     $nombreMes = str_replace($meses_EN, $meses_ES, $mes);
-    $fechaText = $nombreMes;
+    $fechaText = $nombreMes." ".$anio;
     return $fechaText;
   }
 }

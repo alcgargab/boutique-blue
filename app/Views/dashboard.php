@@ -2,382 +2,298 @@
     <h1 class="h2">
         Dashboard
     </h1>
-    <div class="btn-toolbar mb-2 mb-md-0">
-        <div class="btn-group me-2">
-            <button class="btn btn-sm btn-outline-secondary" type="button">
-                Share
-            </button>
-            <button class="btn btn-sm btn-outline-secondary" type="button">
-                Export
-            </button>
-        </div>
-        <button class="btn btn-sm btn-outline-secondary dropdown-toggle d-flex align-items-center gap-1" type="button">
-            <svg class="bi">
-                <use xlink:href="#calendar3">
-                </use>
-            </svg>
-            This week
-        </button>
-    </div>
 </div>
-<div class="card">
-    <div class="card-body">
-        <h4 class="header-title mt-0 text-center">0</h4>
-        <div class="chart-demo m-0">
-            <div id="chart" class="apex-charts"></div>
+<div class="row mt-3">
+    <div class="col">
+        <div class="card">
+            <div class="card-body">
+                <div class="row">
+                    <div class="chart-demo m-0">
+                        <div id="Ingresos" class="apex-charts"></div>
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
-</div>
-<h2>
-    Section title
-</h2>
-<div class="table-responsive small">
-    <table class="table table-striped table-sm">
-        <thead>
-            <tr>
-                <th scope="col">
-                    #
-                </th>
-                <th scope="col">
-                    Header
-                </th>
-                <th scope="col">
-                    Header
-                </th>
-                <th scope="col">
-                    Header
-                </th>
-                <th scope="col">
-                    Header
-                </th>
-            </tr>
-        </thead>
-        <tbody>
-            <tr>
-                <td>
-                    1,001
-                </td>
-                <td>
-                    random
-                </td>
-                <td>
-                    data
-                </td>
-                <td>
-                    placeholder
-                </td>
-                <td>
-                    text
-                </td>
-            </tr>
-            <tr>
-                <td>
-                    1,002
-                </td>
-                <td>
-                    placeholder
-                </td>
-                <td>
-                    irrelevant
-                </td>
-                <td>
-                    visual
-                </td>
-                <td>
-                    layout
-                </td>
-            </tr>
-            <tr>
-                <td>
-                    1,003
-                </td>
-                <td>
-                    data
-                </td>
-                <td>
-                    rich
-                </td>
-                <td>
-                    dashboard
-                </td>
-                <td>
-                    tabular
-                </td>
-            </tr>
-            <tr>
-                <td>
-                    1,003
-                </td>
-                <td>
-                    information
-                </td>
-                <td>
-                    placeholder
-                </td>
-                <td>
-                    illustrative
-                </td>
-                <td>
-                    data
-                </td>
-            </tr>
-            <tr>
-                <td>
-                    1,004
-                </td>
-                <td>
-                    text
-                </td>
-                <td>
-                    random
-                </td>
-                <td>
-                    layout
-                </td>
-                <td>
-                    dashboard
-                </td>
-            </tr>
-            <tr>
-                <td>
-                    1,005
-                </td>
-                <td>
-                    dashboard
-                </td>
-                <td>
-                    irrelevant
-                </td>
-                <td>
-                    text
-                </td>
-                <td>
-                    placeholder
-                </td>
-            </tr>
-            <tr>
-                <td>
-                    1,006
-                </td>
-                <td>
-                    dashboard
-                </td>
-                <td>
-                    illustrative
-                </td>
-                <td>
-                    rich
-                </td>
-                <td>
-                    data
-                </td>
-            </tr>
-            <tr>
-                <td>
-                    1,007
-                </td>
-                <td>
-                    placeholder
-                </td>
-                <td>
-                    tabular
-                </td>
-                <td>
-                    information
-                </td>
-                <td>
-                    irrelevant
-                </td>
-            </tr>
-            <tr>
-                <td>
-                    1,008
-                </td>
-                <td>
-                    random
-                </td>
-                <td>
-                    data
-                </td>
-                <td>
-                    placeholder
-                </td>
-                <td>
-                    text
-                </td>
-            </tr>
-            <tr>
-                <td>
-                    1,009
-                </td>
-                <td>
-                    placeholder
-                </td>
-                <td>
-                    irrelevant
-                </td>
-                <td>
-                    visual
-                </td>
-                <td>
-                    layout
-                </td>
-            </tr>
-            <tr>
-                <td>
-                    1,010
-                </td>
-                <td>
-                    data
-                </td>
-                <td>
-                    rich
-                </td>
-                <td>
-                    dashboard
-                </td>
-                <td>
-                    tabular
-                </td>
-            </tr>
-            <tr>
-                <td>
-                    1,011
-                </td>
-                <td>
-                    information
-                </td>
-                <td>
-                    placeholder
-                </td>
-                <td>
-                    illustrative
-                </td>
-                <td>
-                    data
-                </td>
-            </tr>
-            <tr>
-                <td>
-                    1,012
-                </td>
-                <td>
-                    text
-                </td>
-                <td>
-                    placeholder
-                </td>
-                <td>
-                    layout
-                </td>
-                <td>
-                    dashboard
-                </td>
-            </tr>
-            <tr>
-                <td>
-                    1,013
-                </td>
-                <td>
-                    dashboard
-                </td>
-                <td>
-                    irrelevant
-                </td>
-                <td>
-                    text
-                </td>
-                <td>
-                    visual
-                </td>
-            </tr>
-            <tr>
-                <td>
-                    1,014
-                </td>
-                <td>
-                    dashboard
-                </td>
-                <td>
-                    illustrative
-                </td>
-                <td>
-                    rich
-                </td>
-                <td>
-                    data
-                </td>
-            </tr>
-            <tr>
-                <td>
-                    1,015
-                </td>
-                <td>
-                    random
-                </td>
-                <td>
-                    tabular
-                </td>
-                <td>
-                    information
-                </td>
-                <td>
-                    text
-                </td>
-            </tr>
-        </tbody>
-    </table>
-</div>
-<script type="text/javascript">
-    var options = {
-        series: [{
-            name: 'Net Profit',
-            data: [44, 55, 57, 56, 61, 58, 63, 60, 66]
-        }, {
-            name: 'Revenue',
-            data: [76, 85, 101, 98, 87, 105, 91, 114, 94]
-        }, {
-            name: 'Free Cash Flow',
-            data: [35, 41, 36, 26, 45, 48, 52, 53, 41]
-        }],
-        chart: {
-            type: 'bar',
-            height: 350
-        },
-        plotOptions: {
-            bar: {
-                horizontal: false,
-                columnWidth: '55%',
-                borderRadius: 5,
-                borderRadiusApplication: 'end'
-            },
-        },
-        dataLabels: {
-            enabled: false
-        },
-        stroke: {
-            show: true,
-            width: 2,
-            colors: ['transparent']
-        },
-        xaxis: {
-            categories: ['Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct'],
-        },
-        yaxis: {
-            title: {
-                text: '$ (thousands)'
-            }
-        },
-        fill: {
-            opacity: 1
-        },
-        tooltip: {
-            y: {
-                formatter: function(val) {
-                    return "$ " + val + " thousands"
+    <div class="row mt-3">
+        <div class="col">
+            <div class="card">
+                <div class="card-body">
+                    <div class="row">
+                        <div class="col-4">
+                            <h4 class="header-title mt-0 text-center">Historial de Ingresos</h4>
+                        </div>
+                        <div class="col-8">
+                            <button id="reportA" class="btn btn-sm btn-outline-secondary" type="button">Año</button>
+                            <button id="reportC" class="btn btn-sm btn-outline-secondary" type="button">Cuatrimestre</button>
+                            <button id="reportT" class="btn btn-sm btn-outline-secondary" type="button">Trimestre</button>
+                            <button id="reportB" class="btn btn-sm btn-outline-secondary" type="button">Bimestre</button>
+                            <button id="reportM" class="btn btn-sm btn-outline-secondary" type="button">Mes</button>
+                            <button id="reportQ" class="btn btn-sm btn-outline-secondary" type="button">Quincena</button>
+                            <button id="reportS" class="btn btn-sm btn-outline-secondary" type="button">Semana</button>
+                            <button id="reportD" class="btn btn-sm btn-outline-secondary" type="button">Día</button>
+                        </div>
+                    </div>
+                    <div class="chart-demo m-0">
+                        <div id="recordIngresos" class="apex-charts"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script type="text/javascript">
+        $(document).ready(function() {
+            $("#reportD").click(function() {
+                $('#recordIngresos').html('<center class="mt-5"><i class="fa-solid fa-spinner fa-spin-pulse" style="color: #4285f4; font-size:250px"></i></center>');
+                $.ajax({
+                    url: "<?= base_url() ?>ajax/get-ventas-dia",
+                    type: "post",
+                    dataType: "html",
+                    beforeSend: function(r) {},
+                    success: function(r) {
+                        if (0 != (r = JSON.parse(r)).status) {
+                            optionsDia = {
+                                series: [{
+                                    name: "Reporte diario de ventas",
+                                    data: r.ingresos.map(item => parseFloat(item.total_ingreso)) // Usamos map para construir el array de datos
+                                }],
+                                chart: {
+                                    height: 350,
+                                    type: 'line',
+                                    dropShadow: {
+                                        enabled: true,
+                                        color: '#000',
+                                        top: 18,
+                                        left: 7,
+                                        blur: 10,
+                                        opacity: 0.2
+                                    },
+                                    zoom: {
+                                        enabled: false
+                                    },
+                                    toolbar: {
+                                        show: false
+                                    }
+                                },
+                                colors: ['#34a853'],
+                                dataLabels: {
+                                    enabled: true,
+                                    formatter: function(val, opts) {
+                                        return Intl.NumberFormat('es-MX', {
+                                            style: 'currency',
+                                            currency: 'MXN'
+                                        }).format(val);
+                                    },
+                                },
+                                stroke: {
+                                    curve: 'smooth'
+                                },
+                                title: {
+                                    text: 'Reporte diario de ventas',
+                                    align: 'left'
+                                },
+                                grid: {
+                                    borderColor: '#000000',
+                                    row: {
+                                        colors: ['#212529'],
+                                        opacity: 0.5
+                                    },
+                                },
+                                markers: {
+                                    size: 1
+                                },
+                                xaxis: {
+                                    categories: r.ingresos.map(item => item.i_fecha), // Usamos map para construir el array de categorías
+                                    title: {
+                                        text: 'Día'
+                                    }
+                                },
+                                yaxis: {
+                                    title: {
+                                        text: 'Pesos'
+                                    },
+                                    // min y max deben ser dinámicos basados en tus datos
+                                    // Ejemplo:
+                                    min: Math.min(...r.ingresos.map(item => parseFloat(item.total_ingreso))),
+                                    max: Math.max(...r.ingresos.map(item => parseFloat(item.total_ingreso)))
+                                },
+                                legend: {
+                                    position: 'top',
+                                    horizontalAlign: 'right',
+                                    floating: true,
+                                    offsetY: -25,
+                                    offsetX: -5
+                                }
+                            };
+                            var chart = new ApexCharts(document.querySelector("#recordIngresos"), optionsDia).render();
+                        } else {
+                            $('#recordIngresos').html('<center class="mt-5"><h4>Lo sentimos hubo un error. Intentalo nuevamente</h4></center>');
+                        }
+                    },
+                    error: function(a) {
+                        $('#recordIngresos').html('<center class="mt-5"><h4>Lo sentimos hubo un error. Intentalo nuevamente</h4></center>');
+                    },
+                });
+            });
+        });
+        var optionsIngresos = {
+            series: [{
+                    name: "Ingresos",
+                    data: [<?php foreach ($reporteIngresosEgresos as $ingreso) {
+                                echo $ingreso['ingresoTotal'] . ",";
+                            } ?>]
+                },
+                {
+                    name: "Egresos",
+                    data: [<?php foreach ($reporteIngresosEgresos as $egreso) {
+                                echo $egreso['egresoTotal'] . ",";
+                            } ?>]
                 }
+            ],
+            chart: {
+                height: 350,
+                type: 'line',
+                dropShadow: {
+                    enabled: true,
+                    color: '#212529',
+                    top: 18,
+                    left: 7,
+                    blur: 10,
+                    opacity: 0.5
+                },
+                zoom: {
+                    enabled: false
+                },
+                toolbar: {
+                    show: false
+                }
+            },
+            colors: ['#34a853', '#ea4335'],
+            dataLabels: {
+                enabled: true,
+                formatter: function(val, opts) {
+                    return Intl.NumberFormat('es-MX', {
+                        style: 'currency',
+                        currency: 'MXN'
+                    }).format(val);
+                },
+            },
+            stroke: {
+                curve: 'smooth'
+            },
+            title: {
+                text: '',
+                align: 'left'
+            },
+            grid: {
+                borderColor: '#ffffff',
+                row: {
+                    colors: ['#212529'], // takes an array which will be repeated on columns
+                    opacity: 0.5
+                },
+            },
+            markers: {
+                size: 1
+            },
+            xaxis: {
+                categories: [<?php foreach ($reporteIngresosEgresos as $row) {
+                                    echo "'" . __getMonth($row['fecha']) . "',";
+                                } ?>],
+                // categories: ['Septiembre', 'Octubre', 'Noviembre', 'Diciembre', 'Enero', 'Febrero', 'Marzo', 'Abril', ' Mayo', 'Junio', 'Julio', 'Agosto'],
+                title: {
+                    text: 'Mes'
+                }
+            },
+            yaxis: {
+                title: {
+                    text: 'Pesos'
+                },
+                min: <?= (!empty($min) ? $min : '0') ?>,
+                max: <?= (!empty($max) ? $max : '10000') ?>
+            },
+            legend: {
+                position: 'top',
+                horizontalAlign: 'right',
+                floating: true,
+                offsetY: -5,
+                offsetX: -5
             }
-        }
-    };
-    var chart = new ApexCharts(document.querySelector("#chart"), options).render();
-</script>
+        };
+        var chartIngresos = new ApexCharts(document.querySelector("#Ingresos"), optionsIngresos).render();
+        var options = {
+            series: [{
+                name: "Reporte mensual de Ingresos",
+                data: [<?php foreach ($reporteIngresos as $ingreso) {
+                            echo $ingreso->ingresoTotal . ",";
+                        } ?>]
+            }],
+            chart: {
+                height: 350,
+                type: 'line',
+                dropShadow: {
+                    enabled: true,
+                    color: '#000',
+                    top: 18,
+                    left: 7,
+                    blur: 10,
+                    opacity: 0.2
+                },
+                zoom: {
+                    enabled: false
+                },
+                toolbar: {
+                    show: false
+                }
+            },
+            colors: ['#34a853'],
+            dataLabels: {
+                enabled: true,
+                formatter: function(val, opts) {
+                    return Intl.NumberFormat('es-MX', {
+                        style: 'currency',
+                        currency: 'MXN'
+                    }).format(val);
+                },
+            },
+            stroke: {
+                curve: 'smooth'
+            },
+            title: {
+                text: 'Reporte mensual de Ingresos',
+                align: 'left'
+            },
+            grid: {
+                borderColor: '#000000',
+                row: {
+                    colors: ['#212529'], // takes an array which will be repeated on columns
+                    opacity: 0.5
+                },
+            },
+            markers: {
+                size: 1
+            },
+            xaxis: {
+                categories: [<?php foreach ($reporteIngresos as $ingreso) {
+                                    echo "'" . __getMonth($ingreso->i_fecha) . "',";
+                                } ?>],
+                title: {
+                    text: 'Mes'
+                }
+            },
+            yaxis: {
+                title: {
+                    text: 'Pesos'
+                },
+                min: 0,
+                max: <?= (!empty($mayorIngreso) ? $mayorIngreso : '10000') ?>
+            },
+            legend: {
+                position: 'top',
+                horizontalAlign: 'right',
+                floating: true,
+                offsetY: -25,
+                offsetX: -5
+            }
+        };
+        var chart = new ApexCharts(document.querySelector("#recordIngresos"), options).render();
+    </script>

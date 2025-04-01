@@ -71,9 +71,28 @@
             }
             $tope = self::$var_15;
             $modelmain = new Main;
-            $select = "a_token, a_fecha, a_hora, p_nombre, t_talla, c_color, p_precioVenta, p_imagen, cl_nombre, cl_apellido, cl_whatsapp";
+            $select = "a_id, a_token, a_fecha, a_hora, p_nombre, t_talla, c_color, p_precioVenta, p_imagen, cl_nombre, cl_apellido, cl_whatsapp";
             $query_home['allApartados'] = $modelmain -> __getAllInner($select, self::$var_7, self::$tbl_a, self::$tbl_p, self::$th_a_p, self::$th_p_i, self::$tbl_cl, self::$th_a_c, self::$th_cl_i, self::$tbl_pt, self::$th_p_i, self::$th_pt_p, self::$tbl_t, self::$th_t_i, self::$th_pt_t, self::$tbl_ptcs, self::$th_ptcs_p, self::$th_pt_i, self::$tbl_c, self::$th_c_i, self::$th_ptcs_c, self::$empty, self::$empty, self::$empty, self::$empty, self::$empty, self::$empty, self::$empty, self::$empty, self::$empty, self::$var_1, self::$th_a_a, self::$equal, self::$var_1, self::$empty, self::$empty, self::$empty, self::$empty, self::$empty, self::$empty, self::$empty, self::$empty, self::$empty, self::$empty, self::$empty, self::$empty, self::$empty, self::$empty, self::$empty, self::$empty, self::$empty, self::$empty, self::$empty, self::$empty, self::$empty, self::$empty, self::$empty, self::$empty, self::$empty, self::$empty, self::$empty, self::$empty, self::$empty, self::$empty, self::$empty, self::$empty, self::$empty, self::$empty, self::$empty, self::$empty, self::$empty, self::$empty, self::$empty, self::$empty, self::$empty);
-            $query_home['apartados'] = $modelmain -> __getAllInner($select, self::$var_7, self::$tbl_a, self::$tbl_p, self::$th_a_p, self::$th_p_i, self::$tbl_cl, self::$th_a_c, self::$th_cl_i, self::$tbl_pt, self::$th_p_i, self::$th_pt_p, self::$tbl_t, self::$th_t_i, self::$th_pt_t, self::$tbl_ptcs, self::$th_ptcs_p, self::$th_pt_i, self::$tbl_c, self::$th_c_i, self::$th_ptcs_c, self::$empty, self::$empty, self::$empty, self::$empty, self::$empty, self::$empty, self::$empty, self::$empty, self::$empty, self::$var_1, self::$th_a_a, self::$equal, self::$var_1, self::$empty, self::$empty, self::$empty, self::$empty, self::$empty, self::$empty, self::$empty, self::$empty, self::$empty, self::$empty, self::$empty, self::$empty, self::$empty, self::$empty, self::$empty, self::$empty, self::$empty, self::$empty, self::$empty, self::$empty, self::$empty, self::$empty, self::$empty, self::$empty, self::$empty, self::$empty, self::$empty, self::$empty, self::$empty, self::$empty, self::$empty, self::$empty, self::$empty, self::$empty, self::$empty, self::$empty, self::$th_a_f, self::$DESC, $tope, $base, self::$empty);
+            $query_apartados = $modelmain -> __getAllInner($select, self::$var_7, self::$tbl_a, self::$tbl_p, self::$th_a_p, self::$th_p_i, self::$tbl_cl, self::$th_a_c, self::$th_cl_i, self::$tbl_pt, self::$th_p_i, self::$th_pt_p, self::$tbl_t, self::$th_t_i, self::$th_pt_t, self::$tbl_ptcs, self::$th_ptcs_p, self::$th_pt_i, self::$tbl_c, self::$th_c_i, self::$th_ptcs_c, self::$empty, self::$empty, self::$empty, self::$empty, self::$empty, self::$empty, self::$empty, self::$empty, self::$empty, self::$var_1, self::$th_a_a, self::$equal, self::$var_1, self::$empty, self::$empty, self::$empty, self::$empty, self::$empty, self::$empty, self::$empty, self::$empty, self::$empty, self::$empty, self::$empty, self::$empty, self::$empty, self::$empty, self::$empty, self::$empty, self::$empty, self::$empty, self::$empty, self::$empty, self::$empty, self::$empty, self::$empty, self::$empty, self::$empty, self::$empty, self::$empty, self::$empty, self::$empty, self::$empty, self::$empty, self::$empty, self::$empty, self::$empty, self::$empty, self::$empty, self::$th_a_f, self::$DESC, $tope, $base, self::$empty);
+            if (!empty($query_apartados)) {
+                $select = "SUM(ab_cantidad) as abonoTotal, ab_apartado ";
+                // $query_abonos = "";
+                foreach ($query_apartados as $row) {
+                    $query_abonos[] = $modelmain->__getAll($select, self::$tbl_ab, self::$var_2, self::$th_ab_ac, self::$equal, self::$var_1, self::$and, self::$th_ab_a, self::$equal, $row->a_id, self::$empty, self::$empty, self::$empty, self::$empty, self::$empty, self::$empty, self::$empty, self::$empty, self::$empty, self::$empty, self::$empty, self::$empty, self::$empty, self::$empty, self::$empty, self::$empty, self::$empty, self::$empty, self::$empty, self::$empty, self::$empty, self::$empty, self::$empty, self::$empty, self::$empty, self::$empty, self::$empty, self::$empty, self::$empty, self::$empty, self::$empty, self::$empty, self::$empty, self::$empty, self::$empty, self::$empty, self::$th_ab_a);
+                }
+            }
+            $resultado = [];
+            foreach ($query_abonos as $item1) {
+                foreach ($query_apartados as $item2) {
+                    if ($item1[0]->ab_apartado == $item2->a_id) {
+                        $objeto = (object) array_merge((array) $item1[0], (array) $item2);
+                        $resultado[] = $objeto;
+                        break; // Salir del bucle interno una vez que se encuentra la coincidencia
+                    }
+                }
+            }
+            $query_home['apartados'] = $resultado; 
+            // echo "<pre>"; print_r($query_home); die(); echo "</pre>";
             // $query_home['allApartados'] = "";
             // $query_home['apartados'] ="";
             if (!empty($query_home['allApartados'])) {
@@ -88,7 +107,6 @@
             $query_home['clientes'] = $modelmain -> __getAll($select, self::$tbl_cl, self::$var_1, self::$th_cl_a, self::$equal, self::$var_1, self::$empty, self::$empty, self::$empty, self::$empty, self::$empty, self::$empty, self::$empty, self::$empty, self::$empty, self::$empty, self::$empty, self::$empty, self::$empty, self::$empty, self::$empty, self::$empty, self::$empty, self::$empty, self::$empty, self::$empty, self::$empty, self::$empty, self::$empty, self::$empty, self::$empty, self::$empty, self::$empty, self::$empty, self::$empty, self::$empty, self::$empty, self::$empty, self::$empty, self::$empty, self::$empty, self::$empty, self::$th_cl_ap, self::$ASC, self::$empty, self::$empty, self::$empty);
             $select = "tp_id, tp_nombre";
             $query_home['tipoPagos'] = $modelmain -> __getAll($select, self::$tbl_tp, self::$var_1, self::$th_tp_a, self::$equal, self::$var_1, self::$empty, self::$empty, self::$empty, self::$empty, self::$empty, self::$empty, self::$empty, self::$empty, self::$empty, self::$empty, self::$empty, self::$empty, self::$empty, self::$empty, self::$empty, self::$empty, self::$empty, self::$empty, self::$empty, self::$empty, self::$empty, self::$empty, self::$empty, self::$empty, self::$empty, self::$empty, self::$empty, self::$empty, self::$empty, self::$empty, self::$empty, self::$empty, self::$empty, self::$empty, self::$empty, self::$empty, self::$empty, self::$empty, self::$empty, self::$empty, self::$empty);
-            // echo "<pre>"; print_r($query_home); die(); echo "</pre>";
             return view('header')
                 .view('apartados/dashboard', $query_home)
                 .view('footer');

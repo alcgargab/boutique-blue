@@ -77,7 +77,7 @@
             } else { // LA VARIABLE ESTÁ VACIA | REDIRIGIMOS A LA PÁGINA ACTUAL
                 $base = self::$var_0;
             }
-            $tope = self::$var_100;
+            $tope = self::$var_16;
             $modelmain = new Main;
             $select = "v_token, v_fecha, v_hora, p_nombre, t_talla, c_color, p_precioVenta, p_imagen, cl_nombre, cl_apellido, cl_whatsapp, tp_nombre, ptcs_stock";
             $query_home['allVentas'] = $modelmain -> __getAllInner($select, self::$var_8, self::$tbl_v, self::$tbl_p, self::$th_v_p, self::$th_p_i, self::$tbl_cl, self::$th_v_c, self::$th_cl_i, self::$tbl_tp, self::$th_v_pa, self::$th_tp_i, self::$tbl_pt, self::$th_p_i, self::$th_pt_p, self::$tbl_t, self::$th_t_i, self::$th_pt_t, self::$tbl_ptcs, self::$th_ptcs_p, self::$th_pt_i, self::$tbl_c, self::$th_c_i, self::$th_ptcs_c, self::$empty, self::$empty, self::$empty, self::$empty, self::$empty, self::$empty, self::$var_1, self::$th_v_a, self::$equal, self::$var_1, self::$empty, self::$empty, self::$empty, self::$empty, self::$empty, self::$empty, self::$empty, self::$empty, self::$empty, self::$empty, self::$empty, self::$empty, self::$empty, self::$empty, self::$empty, self::$empty, self::$empty, self::$empty, self::$empty, self::$empty, self::$empty, self::$empty, self::$empty, self::$empty, self::$empty, self::$empty, self::$empty, self::$empty, self::$empty, self::$empty, self::$empty, self::$empty, self::$empty, self::$empty, self::$empty, self::$empty, self::$th_v_i, self::$DESC, self::$empty, self::$empty, self::$empty);

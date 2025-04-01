@@ -5,8 +5,3 @@
     RewriteRule ^ %1 [L,NE,R=302]
     RewriteRule ^(.*)$ public/index.php?$1 [L,QSA]
 </IfModule>
-
-webmaster@atomcode.com.mx
-MjGd%@0mb4|FBbGE
-ftp.atomcode.com.mx
-21
