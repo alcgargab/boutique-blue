@@ -110,7 +110,7 @@
                     </div>
                 </div>
                 <div class="chart-demo m-0">
-                    <div id="recordVentas" class="apex-charts"></div>
+                    <div id="recordIngresos" class="apex-charts"></div>
                 </div>
             </div>
         </div>
@@ -181,6 +181,100 @@
     </div>
 </div>
 <script type="text/javascript">
+    $(document).ready(function() {
+        $("#reportD").click(function() {
+            $('#recordIngresos').html('<center class="mt-5"><i class="fa-solid fa-spinner fa-spin-pulse" style="color: #4285f4; font-size:250px"></i></center>');
+            $.ajax({
+                url: "<?=base_url()?>ajax/get-ventas-dia",
+                type: "post",
+                dataType: "html",
+                beforeSend: function(r) {},
+                success: function(r) {
+                    if (0 != (r = JSON.parse(r)).status) {
+                        optionsDia = {
+                            series: [{
+                                name: "Reporte diario de ventas",
+                                data: r.ingresos.map(item => parseFloat(item.total_ingreso)) // Usamos map para construir el array de datos
+                            }],
+                            chart: {
+                                height: 350,
+                                type: 'line',
+                                dropShadow: {
+                                    enabled: true,
+                                    color: '#000',
+                                    top: 18,
+                                    left: 7,
+                                    blur: 10,
+                                    opacity: 0.2
+                                },
+                                zoom: {
+                                    enabled: false
+                                },
+                                toolbar: {
+                                    show: false
+                                }
+                            },
+                            colors: ['#34a853'],
+                            dataLabels: {
+                                enabled: true,
+                                formatter: function(val, opts) {
+                                    return Intl.NumberFormat('es-MX', {
+                                        style: 'currency',
+                                        currency: 'MXN'
+                                    }).format(val);
+                                },
+                            },
+                            stroke: {
+                                curve: 'smooth'
+                            },
+                            title: {
+                                text: 'Reporte diario de ventas',
+                                align: 'left'
+                            },
+                            grid: {
+                                borderColor: '#000000',
+                                row: {
+                                    colors: ['#212529'],
+                                    opacity: 0.5
+                                },
+                            },
+                            markers: {
+                                size: 1
+                            },
+                            xaxis: {
+                                categories: r.ingresos.map(item => item.i_fecha), // Usamos map para construir el array de categorías
+                                title: {
+                                    text: 'Día'
+                                }
+                            },
+                            yaxis: {
+                                title: {
+                                    text: 'Pesos'
+                                },
+                                // min y max deben ser dinámicos basados en tus datos
+                                // Ejemplo:
+                                min: Math.min(...r.ingresos.map(item => parseFloat(item.total_ingreso))),
+                                max: Math.max(...r.ingresos.map(item => parseFloat(item.total_ingreso)))
+                            },
+                            legend: {
+                                position: 'top',
+                                horizontalAlign: 'right',
+                                floating: true,
+                                offsetY: -25,
+                                offsetX: -5
+                            }
+                        };
+                        var chart = new ApexCharts(document.querySelector("#recordIngresos"), optionsDia).render();
+                    } else {
+                        $('#recordIngresos').html('<center class="mt-5"><h4>Lo sentimos hubo un error. Intentalo nuevamente</h4></center>');
+                    }
+                },
+                error: function(a) {
+                    $('#recordIngresos').html('<center class="mt-5"><h4>Lo sentimos hubo un error. Intentalo nuevamente</h4></center>');
+                },
+            });
+        });
+    });
     var options = {
         series: [{
             name: "Reporte de ventas mensual",
@@ -256,5 +350,5 @@
             offsetX: -5
         }
     };
-    var chart = new ApexCharts(document.querySelector("#recordVentas"), options).render();
+    var chart = new ApexCharts(document.querySelector("#recordIngresos"), options).render();
 </script>

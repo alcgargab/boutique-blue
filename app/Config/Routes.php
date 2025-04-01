@@ -29,4 +29,4 @@ $routes->match(['get', 'post'], 'clientes', 'Clientes::index');
 $routes->post('/clientes/create', 'Clientes::create');
 $routes->match(['get', 'post'], '/clientes/read/(:segment)', 'Clientes::read/$1');
 // ajax
-$routes->post('/ajax/getVentasAnio', 'Ajax::getVentasAnio');
+$routes->match(['get', 'post'], '/ajax/get-ventas-dia', 'Ajax::get_ventas_dia');

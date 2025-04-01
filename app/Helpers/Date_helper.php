@@ -1,16 +1,18 @@
 <?php
-  //--------------- CONVERTIR LA FECHA EN TEXTO ---------------//
-  if(!function_exists('__getDay')) {
-    function __getDay($date = NULL)
-    {
-      $fecha = substr($date, 0, 10);
-      $numeroDia = date('d', strtotime($date));
-      $fechaText = $numeroDia;
-      return $fechaText;
-    }
-  }
 //--------------- CONVERTIR LA FECHA EN TEXTO ---------------//
-if (!function_exists('__getMonth')) {
+if(!function_exists('__getDay'))
+{
+  function __getDay($date = NULL)
+  {
+    $fecha = substr($date, 0, 10);
+    $numeroDia = date('d', strtotime($date));
+    $fechaText = $numeroDia;
+    return $fechaText;
+  }
+}
+//--------------- CONVERTIR LA FECHA EN TEXTO ---------------//
+if (!function_exists('__getMonth'))
+{
   function __getMonth($date = NULL)
   {
     $fecha = substr($date, 0, 10);
@@ -23,7 +25,8 @@ if (!function_exists('__getMonth')) {
   }
 }
 //--------------- CONVERTIR LA FECHA EN TEXTO ---------------//
-if (!function_exists('__getYear')) {
+if (!function_exists('__getYear'))
+{
   function __getYear($date = NULL)
   {
     $fecha = substr($date, 0, 10);
@@ -33,7 +36,8 @@ if (!function_exists('__getYear')) {
   }
 }
 //--------------- CONVERTIR LA FECHA EN TEXTO ---------------//
-if (!function_exists('__convertDateToLetter')) {
+if (!function_exists('__convertDateToLetter'))
+{
   function __convertDateToLetter($date = NULL)
   {
     $fecha = substr($date, 0, 10);
@@ -52,30 +56,30 @@ if (!function_exists('__convertDateToLetter')) {
     return $fechaText;
   }
 }
-  //--------------- DETERMINAR LOS DÍAS RESTANTES A UNA FECHA ESPECIFICA ---------------//
-  if(!function_exists('__getDays'))
-  {
-    function __getDays($date = NULL)
-    { 
-      // Convert the target date to a DateTime object
-      $targetDateTime = new DateTime($date);
-      // Get the current date
-      $currentDateTime = new DateTime();
-      // Calculate the interval between the current date and the target date
-      $interval = $currentDateTime->diff($targetDateTime);
-      // Get the remaining days from the interval
-      $remainingDays = $interval->format('%a');
-      return $remainingDays;
-    }
+//--------------- DETERMINAR LOS DÍAS RESTANTES A UNA FECHA ESPECIFICA ---------------//
+if(!function_exists('__getDays'))
+{
+  function __getDays($date = NULL)
+  { 
+    // Convert the target date to a DateTime object
+    $targetDateTime = new DateTime($date);
+    // Get the current date
+    $currentDateTime = new DateTime();
+    // Calculate the interval between the current date and the target date
+    $interval = $currentDateTime->diff($targetDateTime);
+    // Get the remaining days from the interval
+    $remainingDays = $interval->format('%a');
+    return $remainingDays;
   }
-  //--------------- OBETNER EDAD ---------------//
-  if(!function_exists('__getAge'))
-  {
-    function __getAge($fecha_nacimiento = NULL)
-    { 
-      $nacimiento = new DateTime($fecha_nacimiento);
-      $date = new DateTime(date("Y-m-d"));
-      $diferencia = $date->diff($nacimiento);
-      return $diferencia->format("%y");
-    }
+}
+//--------------- OBETNER EDAD ---------------//
+if(!function_exists('__getAge'))
+{
+  function __getAge($fecha_nacimiento = NULL)
+  { 
+    $nacimiento = new DateTime($fecha_nacimiento);
+    $date = new DateTime(date("Y-m-d"));
+    $diferencia = $date->diff($nacimiento);
+    return $diferencia->format("%y");
   }
+}

@@ -12,6 +12,7 @@
         static $tbl_pt = "tbl_boutique_protal";
         static $tbl_ptcs = "tbl_boutique_protalcolstock";
         static $tbl_t = "tbl_boutique_tallas";
+        static $tbl_i = "tbl_boutique_ingresos";
         //---------- CAMPOS ----------//
         static $th_p_i = "p_id";
         static $th_cl_i = "cl_id";
@@ -23,41 +24,35 @@
         static $th_pt_t = "pt_talla";
         static $th_ptcs_p = "ptcs_protal";
         static $th_ptcs_c = "ptcs_color";
-
-        //---------- VALORES ----------//
+        static $th_i_a = "i_activo";
+        static $th_i_f = "i_fecha";
+        static $th_i_Yf = "Year(i_fecha)";
+        static $th_i_Mf = "MONTH(i_fecha)";
         static $th_v_i = "v_id";
         static $th_v_t = "v_token";
         static $th_v_p = "v_producto";
         static $th_v_c = "v_cliente";
         static $th_v_pa = "v_pago";
-        static $th_v_Yf = "Year(v_fecha)";
-        static $th_v_Mf = "MONTH(v_fecha)";
         static $th_v_a = "v_activo";
+        //---------- VALORES ----------//
+        static $var_0 = 0;
         static $var_1 = 1;
+        static $var_3 = 3;
         static $var_8 = 8;
         static $equal = "=";
         static $empty = "";
-        public function getVentasAnio()
+        static $and = "AND";
+        static $or = "OR";
+        static $ASC = "ASC";
+        static $DESC = "DESC";
+        public function get_ventas_dia()
         {
-            // if ($_POST['size']) {
-            //     $size = $_POST['size'];
-            // } else {
-            //     $size = 25;
-            // }
             $modelmain = new Main;
-            $select = "v_id, SUM(p_precioVenta) as ventaTotal, v_fecha";
-            $query_home['reportVentas'] = $modelmain->__getAllInner($select, self::$var_8, self::$tbl_v, self::$tbl_p, self::$th_v_p, self::$th_p_i, self::$tbl_cl, self::$th_v_c, self::$th_cl_i, self::$tbl_tp, self::$th_v_pa, self::$th_tp_i, self::$tbl_pt, self::$th_p_i, self::$th_pt_p, self::$tbl_t, self::$th_t_i, self::$th_pt_t, self::$tbl_ptcs, self::$th_ptcs_p, self::$th_pt_i, self::$tbl_c, self::$th_c_i, self::$th_ptcs_c, self::$empty, self::$empty, self::$empty, self::$empty, self::$empty, self::$empty, self::$var_1, self::$th_v_a, self::$equal, self::$var_1, self::$empty, self::$empty, self::$empty, self::$empty, self::$empty, self::$empty, self::$empty, self::$empty, self::$empty, self::$empty, self::$empty, self::$empty, self::$empty, self::$empty, self::$empty, self::$empty, self::$empty, self::$empty, self::$empty, self::$empty, self::$empty, self::$empty, self::$empty, self::$empty, self::$empty, self::$empty, self::$empty, self::$empty, self::$empty, self::$empty, self::$empty, self::$empty, self::$empty, self::$empty, self::$empty, self::$empty, self::$empty, self::$empty, self::$empty, self::$empty, self::$th_v_Yf);
-            if (!empty($query_home['reportVentas'])) {
-                $query_result['Status'] = 1;
-                foreach ($query_home['reportVentas'] as $row) { // RECORREMOS EL ARRAY
-                    $query_result['reportVentas'][$row->v_id]['v_id'] = $row->v_id;
-                    $query_result['reportVentas'][$row->v_id]['ventaTotal'] = $row->ventaTotal;
-                    $query_result['reportVentas'][$row->v_id]['v_fecha'] = __getYear($row->v_fecha);
-                }
-            } else { // LA VARIABLE NO EXISTE | LE AGREGAMOS EL VALOR DE 0
-                $query_result['Status'] = 0;
-            }
-            echo json_encode($query_result);
+            $select = "i_fecha, SUM(i_ingreso) AS total_ingreso";
+            $query_home['ingresos'] = $modelmain->__getAll($select, self::$tbl_i, self::$var_3, self::$th_i_a, self::$equal, self::$var_1, self::$and, self::$th_i_Yf, self::$equal, date('Y'), self::$and, self::$th_i_Mf, self::$equal, date('m'), self::$empty, self::$empty, self::$empty, self::$empty, self::$empty, self::$empty, self::$empty, self::$empty, self::$empty, self::$empty, self::$empty, self::$empty, self::$empty, self::$empty, self::$empty, self::$empty, self::$empty, self::$empty, self::$empty, self::$empty, self::$empty, self::$empty, self::$empty, self::$empty, self::$empty, self::$empty, self::$empty, self::$empty, self::$th_i_f, self::$ASC, self::$empty, self::$empty, self::$th_i_f);
+            (!empty($query_home['ingresos']))? $query_home['status'] = 1: $query_home['status'] = 0;
+            // echo "<pre>"; print_r($query_home); echo "</pre>"; die();
+            echo json_encode($query_home);
             exit(0);
         }
     }
