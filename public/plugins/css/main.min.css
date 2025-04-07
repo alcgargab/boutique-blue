@@ -3,7 +3,7 @@
     --atom: #D09F5D;
     --gray: #696969;
     --white: #3d3d3d;
-    --white1: #fff;
+    --white1: #ffffff;
     --red: #EA493D;
     --green: #39AB5B;
     --blue: #4989F6;
@@ -155,4 +155,9 @@ a, a:link, a:visited, a:focus, a:hover, a:active{
 .table thead tr th,
 .table tbody tr td {
     vertical-align: middle
+}
+.apexcharts-tooltip {
+    color: #D09F5D;
+    background: #3d3d3d;
+    borderColor: #3d3d3d
 }
