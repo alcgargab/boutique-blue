@@ -8,6 +8,31 @@
         <div class="card">
             <div class="card-body">
                 <div class="row">
+                    <div class="col text-center">
+                        <h3>Ingresos <br>$<?= (!empty($ingresoTotal) ? number_format($ingresoTotal, 2) : '') ?><sup><small>MXN</small></sup></h3>
+                    </div>
+                    <div class="col text-center">
+                        <h1>-</h1>
+                    </div>
+                    <div class="col text-center">
+                        <h3>Egresos <br>$<?= (!empty($egresoTotal) ? number_format($egresoTotal, 2) : '') ?><sup><small>MXN</small></sup></h3>
+                    </div>
+                    <div class="col text-center">
+                        <h1>=</h1>
+                    </div>
+                    <div class="col text-center <?= (!empty($ingresoTotal - $egresoTotal > 0) ? 'text-green' : 'text-red') ?>"><br>
+                        <h1>$<?= number_format($ingresoTotal - $egresoTotal, 2) ?><sup><small>MXN</small></sup></h1>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="row mt-3">
+    <div class="col">
+        <div class="card">
+            <div class="card-body">
+                <div class="row">
                     <div class="col-4">
                         <h4 class="header-title mt-0 text-center">Historial de Ingresos</h4>
                     </div>
@@ -48,7 +73,7 @@
                                 data: r.ingresos.map(item => parseFloat(item.total_ingreso)) // Usamos map para construir el array de datos
                             }],
                             chart: {
-                                height: 350,
+                                height: 650,
                                 type: 'line',
                                 dropShadow: {
                                     enabled: true,
@@ -156,7 +181,7 @@
             }
         ],
         chart: {
-            height: 350,
+            height: 650,
             type: 'line',
             dropShadow: {
                 enabled: true,

@@ -11,6 +11,9 @@
         static $tbl_t = "tbl_boutique_tallas";
         static $tbl_ti = "tbl_boutique_tiendas";
         static $tbl_pti = "tbl_boutique_protie";
+        static $tbl_g = "tbl_boutique_gastos";
+        static $tbl_cl = "tbl_boutique_clientes";
+        static $tbl_tp = "tbl_boutique_tipospago";
         //---------- CAMPOS ----------//
         static $th_p_i = "p_id";
         static $th_p_t = "p_token";
@@ -28,11 +31,15 @@
         static $th_c_a = "c_activo";
         static $th_ti_n = "ti_nombre";
         static $th_ti_a = "ti_activo";
+        static $th_cl_ap = "cl_apellido";
+        static $th_cl_a = "cl_activo";
+        static $th_tp_a = "tp_activo";
         //---------- VALORES ----------//
         static $var_0 = 0;
         static $var_1 = 1;
         static $var_2 = 2;
         static $var_5 = 5;
+        static $var_11 = 11;
         static $var_12 = 12;
         static $var_16 = 16;
         static $equal = "=";
@@ -57,9 +64,14 @@
             }
             $tope = self::$var_12;
             $modelmain = new Main;
-            $select = "p_url, p_nombre, p_precioCompra, p_precioVenta, p_imagen, t_talla, c_color, ptcs_stock";
-            $query_home['productos'] = $modelmain -> __getAllInner($select, self::$var_5, self::$tbl_p, self::$tbl_pt, self::$th_p_i, self::$th_pt_p, self::$tbl_t, self::$th_t_i, self::$th_pt_t, self::$tbl_ptcs, self::$th_ptcs_p, self::$th_pt_i, self::$tbl_c, self::$th_c_i, self::$th_ptcs_c, self::$empty, self::$empty, self::$empty, self::$empty, self::$empty, self::$empty, self::$empty, self::$empty, self::$empty, self::$empty, self::$empty, self::$empty, self::$empty, self::$empty, self::$empty, self::$var_1, self::$th_p_a, self::$equal, self::$var_1, self::$empty, self::$empty, self::$empty, self::$empty, self::$empty, self::$empty, self::$empty, self::$empty, self::$empty, self::$empty, self::$empty, self::$empty, self::$empty, self::$empty, self::$empty, self::$empty, self::$empty, self::$empty, self::$empty, self::$empty, self::$empty, self::$empty, self::$empty, self::$empty, self::$empty, self::$empty, self::$empty, self::$empty, self::$empty, self::$empty, self::$empty, self::$empty, self::$empty, self::$empty, self::$empty, self::$empty, self::$th_p_i, self::$DESC, $tope, $base, self::$empty);
+            $select = "p_id, p_url, p_nombre, p_precioCompra, p_precioVenta, p_imagen, t_talla, c_color, ptcs_stock";
+            // $query_home['productos'] = $modelmain->__getAllInner($select, self::$var_5, self::$tbl_p, self::$tbl_pt, self::$th_p_i, self::$th_pt_p, self::$tbl_t, self::$th_t_i, self::$th_pt_t, self::$tbl_ptcs, self::$th_ptcs_p, self::$th_pt_i, self::$tbl_c, self::$th_c_i, self::$th_ptcs_c, self::$empty, self::$empty, self::$empty, self::$empty, self::$empty, self::$empty, self::$empty, self::$empty, self::$empty, self::$empty, self::$empty, self::$empty, self::$empty, self::$empty, self::$empty, self::$var_1, self::$th_p_a, self::$equal, self::$var_1, self::$empty, self::$empty, self::$empty, self::$empty, self::$empty, self::$empty, self::$empty, self::$empty, self::$empty, self::$empty, self::$empty, self::$empty, self::$empty, self::$empty, self::$empty, self::$empty, self::$empty, self::$empty, self::$empty, self::$empty, self::$empty, self::$empty, self::$empty, self::$empty, self::$empty, self::$empty, self::$empty, self::$empty, self::$empty, self::$empty, self::$empty, self::$empty, self::$empty, self::$empty, self::$empty, self::$empty, self::$th_p_i, self::$DESC, $tope, $base, self::$empty);
+            $query_home['productos'] = $modelmain -> __getAllInner($select, self::$var_5, self::$tbl_p, self::$tbl_pt, self::$th_p_i, self::$th_pt_p, self::$tbl_t, self::$th_t_i, self::$th_pt_t, self::$tbl_ptcs, self::$th_ptcs_p, self::$th_pt_i, self::$tbl_c, self::$th_c_i, self::$th_ptcs_c, self::$empty, self::$empty, self::$empty, self::$empty, self::$empty, self::$empty, self::$empty, self::$empty, self::$empty, self::$empty, self::$empty, self::$empty, self::$empty, self::$empty, self::$empty, self::$var_1, self::$th_p_a, self::$equal, self::$var_1, self::$empty, self::$empty, self::$empty, self::$empty, self::$empty, self::$empty, self::$empty, self::$empty, self::$empty, self::$empty, self::$empty, self::$empty, self::$empty, self::$empty, self::$empty, self::$empty, self::$empty, self::$empty, self::$empty, self::$empty, self::$empty, self::$empty, self::$empty, self::$empty, self::$empty, self::$empty, self::$empty, self::$empty, self::$empty, self::$empty, self::$empty, self::$empty, self::$empty, self::$empty, self::$empty, self::$empty, self::$th_p_i, self::$DESC, self::$empty, self::$empty, self::$empty);
             $query_home['allProductos'] = $modelmain -> __getAllInner($select, self::$var_5, self::$tbl_p, self::$tbl_pt, self::$th_p_i, self::$th_pt_p, self::$tbl_t, self::$th_t_i, self::$th_pt_t, self::$tbl_ptcs, self::$th_ptcs_p, self::$th_pt_i, self::$tbl_c, self::$th_c_i, self::$th_ptcs_c, self::$empty, self::$empty, self::$empty, self::$empty, self::$empty, self::$empty, self::$empty, self::$empty, self::$empty, self::$empty, self::$empty, self::$empty, self::$empty, self::$empty, self::$empty, self::$var_1, self::$th_p_a, self::$equal, self::$var_1, self::$empty, self::$empty, self::$empty, self::$empty, self::$empty, self::$empty, self::$empty, self::$empty, self::$empty, self::$empty, self::$empty, self::$empty, self::$empty, self::$empty, self::$empty, self::$empty, self::$empty, self::$empty, self::$empty, self::$empty, self::$empty, self::$empty, self::$empty, self::$empty, self::$empty, self::$empty, self::$empty, self::$empty, self::$empty, self::$empty, self::$empty, self::$empty, self::$empty, self::$empty, self::$empty, self::$empty, self::$empty, self::$empty, self::$empty, self::$empty, self::$empty);
+            $select = "cl_id, cl_nombre, cl_apellido";
+            $query_home['clientes'] = $modelmain->__getAll($select, self::$tbl_cl, self::$var_1, self::$th_cl_a, self::$equal, self::$var_1, self::$empty, self::$empty, self::$empty, self::$empty, self::$empty, self::$empty, self::$empty, self::$empty, self::$empty, self::$empty, self::$empty, self::$empty, self::$empty, self::$empty, self::$empty, self::$empty, self::$empty, self::$empty, self::$empty, self::$empty, self::$empty, self::$empty, self::$empty, self::$empty, self::$empty, self::$empty, self::$empty, self::$empty, self::$empty, self::$empty, self::$empty, self::$empty, self::$empty, self::$empty, self::$empty, self::$empty, self::$th_cl_ap, self::$ASC, self::$empty, self::$empty, self::$empty);
+            $select = "tp_id, tp_nombre";
+            $query_home['tipoPagos'] = $modelmain->__getAll($select, self::$tbl_tp, self::$var_1, self::$th_tp_a, self::$equal, self::$var_1, self::$empty, self::$empty, self::$empty, self::$empty, self::$empty, self::$empty, self::$empty, self::$empty, self::$empty, self::$empty, self::$empty, self::$empty, self::$empty, self::$empty, self::$empty, self::$empty, self::$empty, self::$empty, self::$empty, self::$empty, self::$empty, self::$empty, self::$empty, self::$empty, self::$empty, self::$empty, self::$empty, self::$empty, self::$empty, self::$empty, self::$empty, self::$empty, self::$empty, self::$empty, self::$empty, self::$empty, self::$empty, self::$empty, self::$empty, self::$empty, self::$empty);
             $query_home['gastoTotal'] = self::$var_0;
             $query_home['gananciaTotal'] = self::$var_0;
             if (!empty($query_home['allProductos'])) {
@@ -92,7 +104,7 @@
         }
         public function create()
         {
-            $modelmain = new Main;        
+            $modelmain = new Main;
             $query_producto['p_nombre'] = trim(mb_strtoupper($this -> request -> getPost('nProducto'), "UTF-8"));
             if (!empty($query_producto['p_nombre'])) {
                 $query_producto['p_url'] = trim(mb_strtolower(__replace_space($query_producto['p_nombre']), "UTF-8"));
@@ -130,7 +142,13 @@
                 $query_producto['p_fcompra'] = trim($this -> request -> getPost('fProducto'));
                 $query_producto['p_activo'] = self::$var_1;
                 $query_insertProducto = $modelmain -> __insert(self::$tbl_p, $query_producto);
-                // echo "<pre>"; print_r($query_insertProducto); echo "</pre>"; die();            
+                $query_gastos['g_categoria'] = self::$var_11;
+                $query_gastos['g_nombre'] = $query_producto['p_nombre'];
+                $query_gastos['g_cantidad'] = $query_form['ptcs_stock'];
+                $query_gastos['g_precio'] = $query_producto['p_precioCompra'];
+                $query_gastos['g_fgasto'] = trim($this->request->getPost('fProducto'));
+                $query_gastos['g_activo'] = self::$var_1;
+                $modelmain->__insert(self::$tbl_g, $query_gastos);
                 $select = "p_id";
                 $query_getProducto = $modelmain -> __getRow($select, self::$tbl_p, self::$var_1, self::$th_p_t, self::$equal, $query_producto['p_token'], self::$empty, self::$empty, self::$empty, self::$empty, self::$empty, self::$empty, self::$empty, self::$empty, self::$empty, self::$empty, self::$empty, self::$empty, self::$empty, self::$empty, self::$empty, self::$empty, self::$empty, self::$empty, self::$empty, self::$empty, self::$empty, self::$empty, self::$empty, self::$empty, self::$empty, self::$empty, self::$empty, self::$empty, self::$empty, self::$empty, self::$empty, self::$empty, self::$empty, self::$empty, self::$empty, self::$empty);
                 $select = "t_id";

@@ -1,9 +1,9 @@
 :root {
-    --black: #dee4ed;
+    --white: #dee4ed;
+    --white1: #ffffff;
     --atom: #D09F5D;
     --gray: #696969;
-    --white: #3d3d3d;
-    --white1: #ffffff;
+    --black: #3d3d3d;
     --red: #EA493D;
     --green: #39AB5B;
     --blue: #4989F6;
@@ -13,14 +13,32 @@ a, a:link, a:visited, a:focus, a:hover, a:active{
     text-decoration: none;
     color: var(--gray);
 }
-.txtAtom {
+.text-red { color: var(--red) }
+.text-green { color: var(--green) }
+.text-blue { color: var(--blue) }
+.text-yellow { color: var(--yellow) }
+.txt-Atom {color: var(--atom)}
+.btn-atom {
+    padding: 0.25rem 0.5rem;
+    border: 1px solid var(--atom);
+    border-radius: 0.25rem;
+    font-weight: 400;
+    line-height: 1.5;
     color: var(--atom);
+    text-align: center;
+    vertical-align: middle;
+    background-color: transparent;
+    transition: color .15s ease-in-out, background-color .15s ease-in-out, border-color .15s ease-in-out, box-shadow .15s ease-in-out;
+}
+.btn-atom:hover, .btn-atom:checked .btn-atom:active .btn-atom:focus{
+    color: var(--white);
+    background-color: var(--atom);
 }
 .dNone {
     display: none
 }
 .card {
-    border: 1px solid var(--white);
+    border: 1px solid var(--black);
     -webkit-transition: all 0.5s ease-in-out;
     -moz-transition: all 0.5s ease-in-out;
     -ms-transition: all 0.5s ease-in-out;
@@ -28,8 +46,8 @@ a, a:link, a:visited, a:focus, a:hover, a:active{
     transition: all 0.5s ease-in-out
 }
 .card:hover {
-    -webkit-box-shadow: 3px 3px 15px 1px var(--white);
-    box-shadow: 3px 3px 15px 1px var(--white);
+    -webkit-box-shadow: 3px 3px 15px 1px var(--black);
+    box-shadow: 3px 3px 15px 1px var(--black);
     -webkit-transition: all 0.5s ease-in-out;
     -moz-transition: all 0.5s ease-in-out;
     -ms-transition: all 0.5s ease-in-out;
@@ -45,6 +63,9 @@ a, a:link, a:visited, a:focus, a:hover, a:active{
     -webkit-user-select: none;
     -moz-user-select: none;
     user-select: none;
+}
+.btn-list-grid{
+
 }
 @media (min-width: 768px) {
     .bd-placeholder-img-lg {

@@ -9,6 +9,7 @@
         //---------- CAMPOS ----------//
         static $th_g_i = "g_id";
         static $th_g_c = "g_categoria";
+        static $th_g_f = "g_fgasto";
         static $th_g_a = "g_activo";
         static $th_cg_i = "cg_id";
         static $th_cg_n = "cg_nombre";
@@ -43,7 +44,7 @@
             $tope = self::$var_5;
             $modelmain = new Main;
             $select = "g_nombre, g_cantidad, g_precio, g_fgasto, cg_nombre";
-            $query_home['gastos'] = $modelmain -> __getAllInner($select, self::$var_2, self::$tbl_g, self::$tbl_cg, self::$th_g_c, self::$th_cg_i, self::$empty, self::$empty, self::$empty, self::$empty, self::$empty, self::$empty, self::$empty, self::$empty, self::$empty, self::$empty, self::$empty, self::$empty, self::$empty, self::$empty, self::$empty, self::$empty, self::$empty, self::$empty, self::$empty, self::$empty, self::$empty, self::$empty, self::$empty, self::$empty, self::$var_1, self::$th_g_a, self::$equal, self::$var_1, self::$empty, self::$empty, self::$empty, self::$empty, self::$empty, self::$empty, self::$empty, self::$empty, self::$empty, self::$empty, self::$empty, self::$empty, self::$empty, self::$empty, self::$empty, self::$empty, self::$empty, self::$empty, self::$empty, self::$empty, self::$empty, self::$empty, self::$empty, self::$empty, self::$empty, self::$empty, self::$empty, self::$empty, self::$empty, self::$empty, self::$empty, self::$empty, self::$empty, self::$empty, self::$empty, self::$empty, self::$th_g_i, self::$DESC, $tope, $base, self::$empty);
+            $query_home['gastos'] = $modelmain -> __getAllInner($select, self::$var_2, self::$tbl_g, self::$tbl_cg, self::$th_g_c, self::$th_cg_i, self::$empty, self::$empty, self::$empty, self::$empty, self::$empty, self::$empty, self::$empty, self::$empty, self::$empty, self::$empty, self::$empty, self::$empty, self::$empty, self::$empty, self::$empty, self::$empty, self::$empty, self::$empty, self::$empty, self::$empty, self::$empty, self::$empty, self::$empty, self::$empty, self::$var_1, self::$th_g_a, self::$equal, self::$var_1, self::$empty, self::$empty, self::$empty, self::$empty, self::$empty, self::$empty, self::$empty, self::$empty, self::$empty, self::$empty, self::$empty, self::$empty, self::$empty, self::$empty, self::$empty, self::$empty, self::$empty, self::$empty, self::$empty, self::$empty, self::$empty, self::$empty, self::$empty, self::$empty, self::$empty, self::$empty, self::$empty, self::$empty, self::$empty, self::$empty, self::$empty, self::$empty, self::$empty, self::$empty, self::$empty, self::$empty, self::$th_g_f, self::$DESC, $tope, $base, self::$empty);
             $query_home['allGastos'] = $modelmain -> __getAllInner($select, self::$var_2, self::$tbl_g, self::$tbl_cg, self::$th_g_c, self::$th_cg_i, self::$empty, self::$empty, self::$empty, self::$empty, self::$empty, self::$empty, self::$empty, self::$empty, self::$empty, self::$empty, self::$empty, self::$empty, self::$empty, self::$empty, self::$empty, self::$empty, self::$empty, self::$empty, self::$empty, self::$empty, self::$empty, self::$empty, self::$empty, self::$empty, self::$var_1, self::$th_g_a, self::$equal, self::$var_1, self::$empty, self::$empty, self::$empty, self::$empty, self::$empty, self::$empty, self::$empty, self::$empty, self::$empty, self::$empty, self::$empty, self::$empty, self::$empty, self::$empty, self::$empty, self::$empty, self::$empty, self::$empty, self::$empty, self::$empty, self::$empty, self::$empty, self::$empty, self::$empty, self::$empty, self::$empty, self::$empty, self::$empty, self::$empty, self::$empty, self::$empty, self::$empty, self::$empty, self::$empty, self::$empty, self::$empty, self::$empty, self::$empty, self::$empty, self::$empty, self::$empty);
             $query_home['gastoTotal'] = self::$var_0;
             if (!empty($query_home['allGastos'])) {
@@ -59,7 +60,6 @@
             $query_home['categorias'] = $modelmain -> __getAll($select, self::$tbl_cg, self::$var_1, self::$th_cg_a, self::$equal, self::$var_1, self::$empty, self::$empty, self::$empty, self::$empty, self::$empty, self::$empty, self::$empty, self::$empty, self::$empty, self::$empty, self::$empty, self::$empty, self::$empty, self::$empty, self::$empty, self::$empty, self::$empty, self::$empty, self::$empty, self::$empty, self::$empty, self::$empty, self::$empty, self::$empty, self::$empty, self::$empty, self::$empty, self::$empty, self::$empty, self::$empty, self::$empty, self::$empty, self::$empty, self::$empty, self::$empty, self::$empty, self::$th_cg_n, self::$ASC, self::$empty, self::$empty, self::$empty);
             $query_home['cat'] = $modelmain -> __getAll($select, self::$tbl_cg, self::$var_1, self::$th_cg_a, self::$equal, self::$var_1, self::$empty, self::$empty, self::$empty, self::$empty, self::$empty, self::$empty, self::$empty, self::$empty, self::$empty, self::$empty, self::$empty, self::$empty, self::$empty, self::$empty, self::$empty, self::$empty, self::$empty, self::$empty, self::$empty, self::$empty, self::$empty, self::$empty, self::$empty, self::$empty, self::$empty, self::$empty, self::$empty, self::$empty, self::$empty, self::$empty, self::$empty, self::$empty, self::$empty, self::$empty, self::$empty, self::$empty, self::$empty, self::$empty, self::$empty, self::$empty, self::$empty);
             if (!empty($query_home['cat'])) {
-                // echo "<pre>"; print_r(count($query_home['cat'])); die(); echo "</pre>";
                 for ($i=1; $i <= count($query_home['cat']); $i++) { 
                     $select = "g_cantidad, g_precio";
                     $query_home['g'.$i] = $modelmain -> __getAll($select, self::$tbl_g, self::$var_2, self::$th_g_a, self::$equal, self::$var_1, self::$and, self::$th_g_c, self::$equal, $i, self::$empty, self::$empty, self::$empty, self::$empty, self::$empty, self::$empty, self::$empty, self::$empty, self::$empty, self::$empty, self::$empty, self::$empty, self::$empty, self::$empty, self::$empty, self::$empty, self::$empty, self::$empty, self::$empty, self::$empty, self::$empty, self::$empty, self::$empty, self::$empty, self::$empty, self::$empty, self::$empty, self::$empty, self::$empty, self::$empty, self::$empty, self::$empty, self::$empty, self::$empty, self::$empty, self::$empty, self::$empty);
@@ -87,7 +87,7 @@
         }
         public function create()
         {
-            $modelmain = new Main;        
+            $modelmain = new Main;
             $query_form['g_nombre'] = trim(mb_strtoupper($this -> request -> getPost('nGasto'), "UTF-8"));
             if (!empty($query_form['g_nombre'])) {
                 $query_form['g_categoria'] = trim(mb_strtoupper($this -> request -> getPost('categoriaGasto'), "UTF-8"));

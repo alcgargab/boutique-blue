@@ -15,6 +15,8 @@
         static $var_1 = 1;
         static $equal = "=";
         static $empty = "";
+        static $ASC = "ASC";
+        static $DESC = "DESC";
         public function index(): string
         {
         $modelmain = new Main;
@@ -25,7 +27,7 @@
             $queryMaxIngreso = max($ingresos);
             $queryMinIngreso = min($ingresos);
         }
-        $select = "SUM(g_precio) as egresoTotal, g_fgasto";
+        $select = "SUM(g_precio*g_cantidad) as egresoTotal, g_fgasto";
         $query_home['reporteEgresos'] = $modelmain->__getAll($select, self::$tbl_g, self::$var_1, self::$th_g_a, self::$equal, self::$var_1, self::$empty, self::$empty, self::$empty, self::$empty, self::$empty, self::$empty, self::$empty, self::$empty, self::$empty, self::$empty, self::$empty, self::$empty, self::$empty, self::$empty, self::$empty, self::$empty, self::$empty, self::$empty, self::$empty, self::$empty, self::$empty, self::$empty, self::$empty, self::$empty, self::$empty, self::$empty, self::$empty, self::$empty, self::$empty, self::$empty, self::$empty, self::$empty, self::$empty, self::$empty, self::$empty, self::$empty, self::$empty, self::$empty, self::$empty, self::$empty, self::$th_g_f);
         if (!empty($query_home['reporteEgresos'])) {
             $egresos = array_column($query_home['reporteEgresos'], 'egresoTotal');
@@ -34,10 +36,8 @@
         }
         $query_home['min'] = ($queryMinIngreso < $queryminEgreso) ? $queryMinIngreso : $queryminEgreso;
         $query_home['max'] = ($queryMaxIngreso > $queryMaxEgreso)?$queryMaxIngreso:$queryMaxEgreso;
-
-
         $reporte = array();
-
+        $query_ingresoTotal = $query_egresoTotal = 0;
         // Procesar ingresos
         foreach ($query_home['reporteIngresos'] as $ingreso) {
             $fecha = date('Y-m', strtotime($ingreso->i_fecha));
@@ -45,8 +45,8 @@
                 $reporte[$fecha] = array('ingresoTotal' => 0, 'egresoTotal' => 0, 'fecha' => $fecha);
             }
             $reporte[$fecha]['ingresoTotal'] += $ingreso->ingresoTotal;
+            $query_ingresoTotal += $ingreso->ingresoTotal;
         }
-
         // Procesar egresos
         foreach ($query_home['reporteEgresos'] as $egreso) {
             $fecha = date('Y-m', strtotime($egreso->g_fgasto));
@@ -54,19 +54,15 @@
                 $reporte[$fecha] = array('ingresoTotal' => 0, 'egresoTotal' => 0, 'fecha' => $fecha);
             }
             $reporte[$fecha]['egresoTotal'] += $egreso->egresoTotal;
+            $query_egresoTotal += $egreso->egresoTotal;
         }
-
         // Ordenar por fecha
         ksort($reporte);
-
         // Reindexar el array para tener índices numéricos
         $reporte = array_values($reporte);
+        $query_home['ingresoTotal'] = $query_ingresoTotal;
+        $query_home['egresoTotal'] = $query_egresoTotal;
         $query_home['reporteIngresosEgresos'] = $reporte;
-
-
-
-
-        // echo "<pre>"; print_r($query_home); echo "</pre>"; die();
         return view('header')
                 .view('dashboard', $query_home)
                 .view('footer');

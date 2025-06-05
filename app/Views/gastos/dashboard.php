@@ -355,4 +355,5 @@
         labels: ['$<?= number_format($gT11, 2) ?> MXN'],
     };
     var chart = new ApexCharts(document.querySelector("#cat11"), cat11).render();
+
 </script>

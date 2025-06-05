@@ -88,7 +88,127 @@
                                 <div class="col">
                                     <div class="form-floating">
                                         <h2>Venta: <span id="PrecioVenta" class="text-success"></span></h2>
-                                        <input type="number" class="form-control dNone" id="vProducto" name="vProducto" value="">
+                                        <input type="text" class="form-control dNone" id="vProducto" name="vProducto">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row mt-3">
+                                <div class="col">
+                                    <input type="submit" class="btn btn-outline-success blueR float-right" value="Agregar">
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-outline-danger" data-bs-dismiss="modal"><i class="fa-solid fa-xmark"></i> Cerrar</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="modal fade" id="venderProducto" aria-hidden="true" aria-labelledby="venderProducto" tabindex="-1">
+        <div class="modal-dialog modal-lg modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalToggleLabel">Venta Nuevo</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <div class="container-fluid">
+                        <form action="<?= base_url() ?>ventas/create" method="post" class="form-horizontalrizontal auth-form my-4">
+                            <div class="row">
+                                <div class="col" style="display: none">
+                                    <div class="form-floating">
+                                        <input type="text" class="form-control" id="vproducto" name="vproducto">
+                                    </div>
+                                </div>
+                                <div class="col">
+                                    <div class="form-floating">
+                                        <select class="form-select" id="vCliente" name="vCliente" aria-label="Nombre del cliente">
+                                            <?php foreach ($clientes as $cliente) { ?>
+                                                <option value="<?= $cliente->cl_id ?>"><?= ucwords(mb_strtolower($cliente->cl_apellido . " " . $cliente->cl_nombre, "UTF-8")) ?></option>
+                                            <?php } ?>
+                                        </select>
+                                        <label for="vCliente">Nombre del cliente</label>
+                                    </div>
+                                </div>
+                                <div class="col">
+                                    <div class="form-floating">
+                                        <select class="form-select" id="vPago" name="vPago" aria-label="Tipo de pago">
+                                            <?php foreach ($tipoPagos as $pago) { ?>
+                                                <option value="<?= $pago->tp_id ?>"><?= ucfirst(mb_strtolower($pago->tp_nombre, "UTF-8")) ?></option>
+                                            <?php } ?>
+                                        </select>
+                                        <label for="vPago">Tipo de pago</label>
+                                    </div>
+                                </div>
+                                <div class="col">
+                                    <div class="form-floating">
+                                        <input type="date" class="form-control" id="fVenta" name="fVenta">
+                                        <label for="fVenta">Fecha de la venta</label>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row mt-3">
+                                <div class="col">
+                                    <input type="submit" class="btn btn-outline-success blueR float-right" value="Agregar">
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-outline-danger" data-bs-dismiss="modal"><i class="fa-solid fa-xmark"></i> Cerrar</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="modal fade" id="ApartarProducto" aria-hidden="true" aria-labelledby="ApartarProducto" tabindex="-1">
+        <div class="modal-dialog modal-lg modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalToggleLabel">Nuevo Apartado</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <div class="container-fluid">
+                        <form action="<?= base_url() ?>apartados/create" method="post" class="form-horizontalrizontal auth-form my-4">
+                            <div class="row">
+                                <div class="col" style="display: none;">
+                                    <div class="form-floating">
+                                        <input type="text" id="aproducto" name="aproducto">
+                                    </div>
+                                </div>
+                                <div class="col">
+                                    <div class="form-floating">
+                                        <select class="form-select" id="aCliente" name="aCliente" aria-label="Nombre del cliente">
+                                            <?php foreach ($clientes as $cliente) { ?>
+                                                <option value="<?= $cliente->cl_id ?>"><?= ucfirst(mb_strtolower($cliente->cl_apellido . " " . $cliente->cl_nombre, "UTF-8")) ?></option>
+                                            <?php } ?>
+                                        </select>
+                                        <label for="aCliente">Nombre del cliente</label>
+                                    </div>
+                                </div>
+                                <div class="col">
+                                    <div class="form-floating">
+                                        <select class="form-select" id="aPago" name="aPago" aria-label="Tipo de pago">
+                                            <?php foreach ($tipoPagos as $pago) { ?>
+                                                <option value="<?= $pago->tp_id ?>"><?= ucfirst(mb_strtolower($pago->tp_nombre, "UTF-8")) ?></option>
+                                            <?php } ?>
+                                        </select>
+                                        <label for="aPago">Tipo de pago</label>
+                                    </div>
+                                </div>
+                                <div class="col">
+                                    <div class="form-floating">
+                                        <input type="date" class="form-control" id="aFecha" name="aFecha">
+                                        <label for="aFecha">Fecha del apartado</label>
+                                    </div>
+                                </div>
+                                <div class="col">
+                                    <div class="form-floating">
+                                        <input type="number" class="form-control" id="aCantidad" name="aCantidad">
+                                        <label for="aCantidad">Monto del apartado</label>
                                     </div>
                                 </div>
                             </div>
@@ -112,20 +232,89 @@
     <h1 class="h2 text-success">
         Ganancia total $ <?= number_format($gananciaTotal, 2); ?><small><sup>MXN</sup></small>
     </h1>
+    <a id="btn_data_list" href="#" class="btn-atom"><i class="fa-solid fa-list"></i> Lista</a>
+    <a id="btn_data_grid" href="#" class="btn-atom"><i class="fa-solid fa-grip"></i> Grid</a>
 </div>
-<div class="row row-cols-1 row-cols-md-6 g-4">
-    <?php if (!empty($productos)):
-        foreach ($productos as $producto): ?>
-            <div class="col-s-6 col-xs-2">
+<?php if (!empty($productos)): ?>
+    <div id="data_list" class="row row-cols-1 row-cols-md-6 g-4">
+        <div class="input-group mb-3">
+            <input id="searchInputList" type="text" class="form-control" placeholder="Search">
+            <button class="btn btn-success" type="submit">Buscar</button>
+        </div>
+        <div class="col-md-12 table-responsive">
+            <table id="myTable" class="table" data-bs-theme="dark" style="table-layout: fixed">
+                <thead>
+                    <tr>
+                        <th scope="col"></th>
+                        <th scope="col">Producto</th>
+                        <th scope="col">Precio</th>
+                        <th scope="col">Características</th>
+                        <th scope="col"></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <?php foreach ($productos as $producto): ?>
+                        <tr>
+                            <td>
+                                <img src="<?= base_url() ?>public/images/productos/<?= $producto->p_imagen ?>" alt="<?= $producto->p_nombre ?>" title="<?= $producto->p_nombre ?>" width="10%">
+                            </td>
+                            <td>
+                                <h6 class="card-text text-secondary">
+                                    <a href="<?= base_url() ?>productos/<?= $producto->p_url ?>" class="text-secondary"><?= ucfirst(mb_strtolower($producto->p_nombre, "UTF-8")) ?></a>
+                                </h6>
+                            </td>
+                            <td>
+                                <h6 class="card-title text-success">$<?= number_format($producto->p_precioVenta, 2) ?> <small><sup>MXN</sup></small></h6>
+                            </td>
+                            <td>
+                                <div class="row">
+                                    <div class="col">
+                                        <p class="card-text text-light"><small>Disponible: <?= $producto->ptcs_stock ?></small></p>
+                                    </div>
+                                    <div class="col">
+                                        <p class="card-text text-light"><small>Color: <?= ucfirst(mb_strtolower($producto->c_color, "UTF-8")) ?></small></p>
+                                    </div>
+                                    <div class="col">
+                                        <p class="card-text text-light"><small>Talla: <?= $producto->t_talla ?></small></p>
+                                    </div>
+                                </div>
+                            </td>
+                            <td>
+                                <div class="row text-center">
+                                    <div class="col">
+                                        <button value="<?= $producto->p_id ?>" class="btnVenta btn btn-sm btn-outline-success" data-bs-toggle="modal" data-bs-target="#venderProducto">Vender</button>
+                                    </div>
+                                    <div class="col">
+                                        <button value="<?= $producto->p_id ?>" class="btnApartar btn btn-sm btn-outline-success" data-bs-toggle="modal" data-bs-target="#ApartarProducto">Apartar</button>
+                                    </div>
+                                </div>
+                            </td>
+                        </tr>
+                    <?php endforeach ?>
+                </tbody>
+            </table>
+        </div>
+    </div>
+    <div id="data_grid" class="row row-cols-1 row-cols-md-6 g-4">
+        <div class="input-group mb-3">
+            <input id="searchInputGrid" type="text" class="form-control" placeholder="Search">
+            <button class="btn btn-success" type="submit">Buscar</button>
+        </div>
+        <?php foreach ($productos as $producto): ?>
+            <div class="col-s-6 col-xs-2 card-container">
                 <div class="card h-100">
                     <img src="<?= base_url() ?>public/images/productos/<?= $producto->p_imagen ?>" class="card-img-top" alt="<?= $producto->p_nombre ?>" title="<?= $producto->p_nombre ?>">
                     <div class="card-body">
                         <h5 class="card-title text-success">$<?= number_format($producto->p_precioVenta, 2) ?> <small><sup>MXN</sup></small></h5>
                         <div class="row">
                             <div class="col">
-                                <h2 class="card-text text-secondary"><a href="<?= base_url() ?>productos/<?= $producto->p_url ?>" class="text-secondary" style="text-decoration: none;"><?= ucfirst(mb_strtolower($producto->p_nombre, "UTF-8")) ?></small></a></h2>
+                                <h2 class="card-text text-secondary">
+                                    <a href="<?= base_url() ?>productos/<?= $producto->p_url ?>" class="text-secondary" style="text-decoration: none;"><?= ucfirst(mb_strtolower($producto->p_nombre, "UTF-8")) ?></a>
+                                </h2>
                                 <div class="col float-right">
-                                    <h6 class="card-text text-light"><small>Disponible: <?= $producto->ptcs_stock ?></small></h6>
+                                    <h6 class="card-text text-light">
+                                        <small>Disponible: <?= $producto->ptcs_stock ?></small>
+                                    </h6>
                                 </div>
                                 <div class="row">
                                     <div class="col">
@@ -137,13 +326,22 @@
                                 </div>
                             </div>
                         </div>
+                        <br>
+                        <div class="row text-center">
+                            <div class="col">
+                                <button value="<?= $producto->p_id ?>" class="btnVenta btn btn-sm btn-outline-success" data-bs-toggle="modal" data-bs-target="#venderProducto">Vender</button>
+                            </div>
+                            <div class="col">
+                                <button value="<?= $producto->p_id ?>" class="btnApartar btn btn-sm btn-outline-success" data-bs-toggle="modal" data-bs-target="#ApartarProducto">Apartar</button>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
         <?php endforeach ?>
-    <?php endif ?>
-</div>
-<div class="row mt-5">
+    </div>
+<?php endif ?>
+<!-- <div class="row mt-5">
     <div class="col-12">
         <?php if ($countProductos != 0) {
             $totalrows = 12;
@@ -160,4 +358,4 @@
         <?php }
         } ?>
     </div>
-</div>
+</div> -->
