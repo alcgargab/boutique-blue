@@ -33,7 +33,6 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.min.css" rel="stylesheet">
     <link async rel="stylesheet" type="text/css" media="screen" href="//cdn.datatables.net/2.2.1/css/dataTables.dataTables.min.css" />
     <script src="//cdn.datatables.net/2.2.1/js/dataTables.min.js"></script>
-
     <?= (!empty($style_main)) ? $style_main : '' ?>
     <?= (!empty($css)) ? $css : '' ?>
     <?php $base_url = base_url();

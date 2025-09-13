@@ -41,7 +41,7 @@
             } else { // LA VARIABLE ESTÁ VACIA | REDIRIGIMOS A LA PÁGINA ACTUAL
                 $base = self::$var_0;
             }
-            $tope = self::$var_5;
+            $tope = self::$var_15;
             $modelmain = new Main;
             $select = "g_nombre, g_cantidad, g_precio, g_fgasto, cg_nombre";
             $query_home['gastos'] = $modelmain -> __getAllInner($select, self::$var_2, self::$tbl_g, self::$tbl_cg, self::$th_g_c, self::$th_cg_i, self::$empty, self::$empty, self::$empty, self::$empty, self::$empty, self::$empty, self::$empty, self::$empty, self::$empty, self::$empty, self::$empty, self::$empty, self::$empty, self::$empty, self::$empty, self::$empty, self::$empty, self::$empty, self::$empty, self::$empty, self::$empty, self::$empty, self::$empty, self::$empty, self::$var_1, self::$th_g_a, self::$equal, self::$var_1, self::$empty, self::$empty, self::$empty, self::$empty, self::$empty, self::$empty, self::$empty, self::$empty, self::$empty, self::$empty, self::$empty, self::$empty, self::$empty, self::$empty, self::$empty, self::$empty, self::$empty, self::$empty, self::$empty, self::$empty, self::$empty, self::$empty, self::$empty, self::$empty, self::$empty, self::$empty, self::$empty, self::$empty, self::$empty, self::$empty, self::$empty, self::$empty, self::$empty, self::$empty, self::$empty, self::$empty, self::$th_g_f, self::$DESC, $tope, $base, self::$empty);

@@ -1300,6 +1300,7 @@
       }
       $resultquery = $query -> getResult();
       if ($resultquery > 0) {
+        // echo "<pre>"; print_r($db ->getLastQuery()); die(); echo "</pre>";
         return $query -> getResult();
       } else {
         return FALSE;

@@ -123,18 +123,16 @@
                                     </div>
                                 </div>
                                 <div class="col">
-                                    <div class="form-floating">
-                                        <select class="form-select" id="vCliente" name="vCliente" aria-label="Nombre del cliente">
-                                            <?php foreach ($clientes as $cliente) { ?>
-                                                <option value="<?= $cliente->cl_id ?>"><?= ucwords(mb_strtolower($cliente->cl_apellido . " " . $cliente->cl_nombre, "UTF-8")) ?></option>
+                                    <input class="form-control" list="nombreClie" id="vCliente" name="vCliente" placeholder="Nombre del cliente" required>
+                                    <datalist id="nombreClie">
+                                        <?php foreach ($clientes as $cliente) { ?>
+                                            <option value="<?= ucwords(mb_strtolower($cliente->cl_apellido . " " . $cliente->cl_nombre, "UTF-8")) ?> | <?= $cliente->cl_whatsapp ?>">
                                             <?php } ?>
-                                        </select>
-                                        <label for="vCliente">Nombre del cliente</label>
-                                    </div>
+                                    </datalist>
                                 </div>
                                 <div class="col">
                                     <div class="form-floating">
-                                        <select class="form-select" id="vPago" name="vPago" aria-label="Tipo de pago">
+                                        <select class="form-select" id="vPago" name="vPago" aria-label="Tipo de pago" required>
                                             <?php foreach ($tipoPagos as $pago) { ?>
                                                 <option value="<?= $pago->tp_id ?>"><?= ucfirst(mb_strtolower($pago->tp_nombre, "UTF-8")) ?></option>
                                             <?php } ?>
@@ -144,7 +142,7 @@
                                 </div>
                                 <div class="col">
                                     <div class="form-floating">
-                                        <input type="date" class="form-control" id="fVenta" name="fVenta">
+                                        <input type="date" class="form-control" id="fVenta" name="fVenta" required>
                                         <label for="fVenta">Fecha de la venta</label>
                                     </div>
                                 </div>
@@ -180,14 +178,12 @@
                                     </div>
                                 </div>
                                 <div class="col">
-                                    <div class="form-floating">
-                                        <select class="form-select" id="aCliente" name="aCliente" aria-label="Nombre del cliente">
-                                            <?php foreach ($clientes as $cliente) { ?>
-                                                <option value="<?= $cliente->cl_id ?>"><?= ucfirst(mb_strtolower($cliente->cl_apellido . " " . $cliente->cl_nombre, "UTF-8")) ?></option>
+                                    <input class="form-control" list="nombreClie" id="vCliente" name="vCliente" placeholder="Nombre del cliente" required>
+                                    <datalist id="nombreClie">
+                                        <?php foreach ($clientes as $cliente) { ?>
+                                            <option value="<?= ucwords(mb_strtolower($cliente->cl_apellido . " " . $cliente->cl_nombre, "UTF-8")) ?> | <?= $cliente->cl_whatsapp ?>">
                                             <?php } ?>
-                                        </select>
-                                        <label for="aCliente">Nombre del cliente</label>
-                                    </div>
+                                    </datalist>
                                 </div>
                                 <div class="col">
                                     <div class="form-floating">
@@ -359,3 +355,73 @@
         } ?>
     </div>
 </div> -->
+<script>
+    // Usamos $(document).ready() para asegurar que el DOM esté completamente cargado
+    $(document).ready(function() {
+        $(".btnVenta").click(function() {
+            $("#vproducto").val($(this).val());
+        });
+        $(".btnApartar").click(function() {
+            $("#aproducto").val($(this).val());
+        });
+        $("#data_grid").hide();
+        $("#btn_data_list").click(function() {
+            $("#data_list").show();
+            $("#data_grid").hide();
+        });
+        // Seleccionamos el input de búsqueda y la tabla con selectores jQuery
+        const $searchInputList = $('#searchInputList');
+        const $table = $('#myTable');
+        const $rows = $table.find('tbody tr'); // Buscamos todas las filas dentro del tbody
+        // Añadimos un escuchador de eventos 'keyup' al input de búsqueda
+        $searchInputList.on('keyup', function() {
+            const filter = $searchInputList.val().toLowerCase(); // Obtenemos el valor del input en minúsculas
+            $rows.each(function() { // Iteramos sobre cada fila usando $.each()
+                const $row = $(this); // Convertimos la fila actual a un objeto jQuery
+                // Obtenemos el texto de todas las celdas de la fila y lo concatenamos
+                // .text() en jQuery obtiene el texto combinado de todos los elementos hijos
+                const textContent = $row.text().toLowerCase();
+                // Comprobamos si el texto de búsqueda está contenido en el texto de la fila
+                if (textContent.indexOf(filter) > -1) {
+                    // $row.removeClass('hide'); // Mostrar la fila
+                    $row.show(); // Mostrar la fila
+                } else {
+                    // $row.addClass('hide'); // Ocultar la fila
+                    $row.hide(); // Ocultar la fila
+                }
+            });
+        });
+        $("#btn_data_grid").click(function() {
+            $("#data_list").hide();
+            $("#data_grid").show();
+        });
+        const $searchInputGrid = $('#searchInputGrid');
+        const $productCards = $('#data_grid .card-container'); // Selecciona todos los div que contienen las cards
+        const $noResultsMessage = $('#noResultsMessage');
+        $searchInputGrid.on('keyup', function() {
+            const filter = $searchInputGrid.val().toLowerCase();
+            let foundResults = false;
+            $productCards.each(function() {
+                const $card = $(this); // El div col-md-3, etc. que contiene la card
+                // Obtenemos el texto relevante para la búsqueda dentro de cada tarjeta
+                // Esto incluye nombre, precio, stock, color, talla.
+                // Ajusta los selectores si quieres buscar en menos elementos.
+                const cardText = $card.find('.card-body').text().toLowerCase();
+
+                if (cardText.indexOf(filter) > -1) {
+                    $card.show(); // Muestra la tarjeta
+                    foundResults = true;
+                } else {
+                    $card.hide(); // Oculta la tarjeta
+                }
+            });
+
+            // Muestra u oculta el mensaje de "no resultados"
+            if (foundResults) {
+                $noResultsMessage.hide();
+            } else {
+                $noResultsMessage.show();
+            }
+        });
+    });
+</script>

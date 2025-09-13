@@ -82,16 +82,20 @@
                 }
             }
             $resultado = [];
-            foreach ($query_abonos as $item1) {
-                foreach ($query_apartados as $item2) {
-                    if ($item1[0]->ab_apartado == $item2->a_id) {
-                        $objeto = (object) array_merge((array) $item1[0], (array) $item2);
-                        $resultado[] = $objeto;
-                        break; // Salir del bucle interno una vez que se encuentra la coincidencia
+            if (!empty($query_abonos)) {
+                foreach ($query_abonos as $item1) {
+                    foreach ($query_apartados as $item2) {
+                        if ($item1[0]->ab_apartado == $item2->a_id) {
+                            $objeto = (object) array_merge((array) $item1[0], (array) $item2);
+                            $resultado[] = $objeto;
+                            break; // Salir del bucle interno una vez que se encuentra la coincidencia
+                        }
                     }
                 }
-            }
-            $query_home['apartados'] = $resultado; 
+            } else {
+            $query_home['apartados'] = "";
+        }
+            $query_home['apartados'] = $resultado;
             // echo "<pre>"; print_r($query_home); die(); echo "</pre>";
             // $query_home['allApartados'] = "";
             // $query_home['apartados'] ="";

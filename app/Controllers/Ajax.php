@@ -52,8 +52,10 @@
             $select = "i_fecha, SUM(i_ingreso) AS total_ingreso";
             $query_home['ingresos'] = $modelmain->__getAll($select, self::$tbl_i, self::$var_2, self::$th_i_a, self::$equal, self::$var_1, self::$and, self::$th_i_Yf, self::$equal, date('Y'), self::$and, self::$th_i_Mf, self::$equal, date('m'), self::$empty, self::$empty, self::$empty, self::$empty, self::$empty, self::$empty, self::$empty, self::$empty, self::$empty, self::$empty, self::$empty, self::$empty, self::$empty, self::$empty, self::$empty, self::$empty, self::$empty, self::$empty, self::$empty, self::$empty, self::$empty, self::$empty, self::$empty, self::$empty, self::$empty, self::$empty, self::$empty, self::$empty, self::$th_i_f, self::$ASC, self::$empty, self::$empty, self::$th_i_f);
             (!empty($query_home['ingresos']))? $query_home['status'] = 1: $query_home['status'] = 0;
-            // echo "<pre>"; print_r($query_home); echo "</pre>"; die();
             echo json_encode($query_home);
             exit(0);
+        }
+        public function get_gastos(){
+            echo "hola";
         }
     }

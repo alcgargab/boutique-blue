@@ -90,7 +90,7 @@
 </div>
 <div class="row row-cols-1 row-cols-md-3 g-4">
     <?php if (!empty($gastos)): ?>
-        <table class="table">
+        <table id="tableGastos" class="table">
             <thead>
                 <tr>
                     <th>Fecha del gasto</th>
@@ -101,7 +101,7 @@
                     <th>Precio Total</th>
                 </tr>
             </thead>
-            <tbody>
+            <!-- <tbody>
                 <?php foreach ($gastos as $gasto): ?>
                     <tr>
                         <td><?= __convertDateToLetter($gasto->g_fgasto) ?></td>
@@ -112,7 +112,7 @@
                         <td>$ <?= number_format($gasto->g_cantidad * $gasto->g_precio, 2) ?></td>
                     </tr>
                 <?php endforeach ?>
-            </tbody>
+            </tbody> -->
         </table>
     <?php endif ?>
 </div>
@@ -135,6 +135,31 @@
     </div>
 </div>
 <script type="text/javascript">
+    $(document).ready(function() {
+        var table = $("#tableGastos").DataTable({
+            $.ajax({
+                url: "<?= base_url() ?>ajax/get_gastos",
+                type: "post",
+                dataType: "html",
+                beforeSend: function(r) {},
+                success: function(r) {},
+                error: function(a) {
+                    $('#IngresosEgresos').html('<center class="mt-5"><h4>Lo sentimos hubo un error. Intentalo nuevamente</h4></center>');
+                },
+            })
+        });
+    });
+
+
+
+
+    // $(document).ready(__data);
+    // //--------------- CLICK ---------------//
+    // function __data() {
+    //     var table = $("#tableGastos").DataTable({
+    //         
+    //     });
+    // }
     var cat1 = {
         series: [<?= $gTP1 ?>],
         chart: {
@@ -355,5 +380,4 @@
         labels: ['$<?= number_format($gT11, 2) ?> MXN'],
     };
     var chart = new ApexCharts(document.querySelector("#cat11"), cat11).render();
-
 </script>

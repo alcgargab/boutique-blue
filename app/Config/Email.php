@@ -6,9 +6,9 @@ use CodeIgniter\Config\BaseConfig;
 
 class Email extends BaseConfig
 {
-    public string $fromEmail  = 'cafe@atomcode.com.mx';
-    public string $fromName   = 'Boutique Blue';
-    public string $recipients = 'alcgab55@gmail.com';
+    public string $fromEmail  = '';
+    public string $fromName   = '';
+    public string $recipients = '';
 
     /**
      * The "user agent"
@@ -28,17 +28,17 @@ class Email extends BaseConfig
     /**
      * SMTP Server Address
      */
-    public string $SMTPHost = 'mail.akkyhosting14.mx';
+    public string $SMTPHost = '';
 
     /**
      * SMTP Username
      */
-    public string $SMTPUser = 'cafe@atomcode.com.mx';
+    public string $SMTPUser = '';
 
     /**
      * SMTP Password
      */
-    public string $SMTPPass = '-5s_~g*[0O5g%Q5~';
+    public string $SMTPPass = '';
 
     /**
      * SMTP Port
@@ -48,7 +48,7 @@ class Email extends BaseConfig
     /**
      * SMTP Timeout (in seconds)
      */
-    public int $SMTPTimeout = 60;
+    public int $SMTPTimeout = 5;
 
     /**
      * Enable persistent SMTP connections
